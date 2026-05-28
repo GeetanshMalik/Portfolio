@@ -183,7 +183,7 @@ const Contact = () => {
           </div>
 
           <a 
-            href="/GeetanshMalik_Resume (1).pdf"
+            href="./resume.pdf"
             download="GeetanshMalik_Resume.pdf"
             onMouseEnter={() => audioEngine.playBlip(1100, 0.05)}
             style={{ textDecoration: 'none', marginTop: '20px', display: 'block', pointerEvents: 'auto' }}

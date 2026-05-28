@@ -86,7 +86,7 @@ const Hero = () => {
         </button>
         
         <a 
-          href="/GeetanshMalik_Resume (1).pdf"
+          href="./resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           style={{ textDecoration: 'none', display: 'flex', width: '100%' }}
