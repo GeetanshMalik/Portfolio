@@ -1,0 +1,125 @@
+.navbar {
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 30px);
+  max-width: 1100px;
+  height: 52px;
+  background: rgba(10, 5, 25, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 26px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.logo {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 13.5px;
+  letter-spacing: 0.12em;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  cursor: default;
+  margin-right: 15px;
+  white-space: nowrap;
+}
+
+.dot {
+  color: #00f0ff;
+  font-size: 16px;
+  line-height: 0;
+  margin: 0 3px;
+  animation: pulse 1.5s infinite;
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  gap: 3px;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.navItem {
+  background: none;
+  border: none;
+  color: #a0aec0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 6px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 20px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: auto;
+  white-space: nowrap;
+}
+
+.indicator {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #a0aec0;
+  opacity: 0.3;
+  transition: all 0.3s ease;
+}
+
+.navItem:hover {
+  color: #fff;
+}
+
+.navItem:hover .indicator {
+  background: var(--accent);
+  opacity: 0.8;
+  box-shadow: 0 0 8px var(--accent);
+}
+
+.active {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.active .indicator {
+  background: var(--accent);
+  opacity: 1;
+  box-shadow: 0 0 10px var(--accent);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    padding: 0 15px;
+    height: 48px;
+    border-radius: 24px;
+  }
+  
+  .logo {
+    font-size: 12px;
+  }
+  
+  .linkText {
+    display: none;
+  }
+  
+  .navItem {
+    padding: 6px;
+  }
+}
