@@ -62,7 +62,7 @@ const Hero = () => {
       
       <div style={{ 
         display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', 
+        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
         gap: '12px',
         maxWidth: '650px',
         width: '100%'

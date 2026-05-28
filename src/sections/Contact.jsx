@@ -51,7 +51,7 @@ const Contact = () => {
         [ SYSTEM_CONNECT // SIGNAL_HUB ]
       </p>
       
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '40px', alignItems: 'start' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', alignItems: 'start' }}>
         {/* Left Side: Contact Information & Direct Buttons */}
         <div>
           <h2 style={{ 

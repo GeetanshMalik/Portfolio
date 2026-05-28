@@ -19,8 +19,18 @@ const Showcase = () => {
   const scrollRef = useRef(null);
   const [imgErr, setImgErr] = useState({});
   const [isDragging, setIsDragging] = useState(false);
+  const [cardW, setCardW] = useState(480);
   const dragStart = useRef(0);
   const scrollStart = useRef(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setCardW(window.innerWidth < 600 ? Math.floor(window.innerWidth * 0.85) : 480);
+    };
+    handleResize(); // Initial call
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const handleImgError = (idx) => {
     setImgErr(prev => ({ ...prev, [idx]: true }));
@@ -31,16 +41,15 @@ const Showcase = () => {
   // and reposition silently when near a boundary.
   const totalItems = showcaseImages.length;
   const tripled = [...showcaseImages, ...showcaseImages, ...showcaseImages];
-  const CARD_W = 480;
   const GAP = 18;
-  const itemWidth = CARD_W + GAP;
+  const itemWidth = cardW + GAP;
 
   // On mount, scroll to the middle set (the "real" set)
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollLeft = totalItems * itemWidth;
     }
-  }, []);
+  }, [itemWidth, totalItems]);
 
   // Handle infinite wrap on scroll
   const handleScroll = () => {
@@ -225,7 +234,7 @@ const Showcase = () => {
               <div
                 key={idx}
                 style={{
-                  flex: `0 0 ${CARD_W}px`,
+                  flex: `0 0 ${cardW}px`,
                   height: '320px',
                   borderRadius: '10px',
                   overflow: 'hidden',

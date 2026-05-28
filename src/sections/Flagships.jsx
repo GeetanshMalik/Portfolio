@@ -107,15 +107,30 @@ const Flagships = () => {
         </p>
       </div>
 
-      {/* Cards Deck Container */}
+        <style>{`
+          .project-card {
+            padding: 30px;
+          }
+          .cards-container {
+            height: 420px;
+          }
+          @media (max-width: 600px) {
+            .project-card {
+              padding: 20px;
+            }
+            .cards-container {
+              height: 480px;
+            }
+          }
+        `}</style>
       <div 
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
+        className="cards-container"
         style={{
           position: 'relative',
           width: '100%',
-          height: '420px',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
@@ -169,17 +184,18 @@ const Flagships = () => {
           return (
             <div
               key={project.id || project.name}
+              className="project-card"
               style={{
                 position: 'absolute',
                 width: '100%',
                 maxWidth: '560px',
-                height: '380px',
+                minHeight: '380px',
+                height: 'auto',
                 background: 'rgba(12, 12, 20, 0.85)',
                 backdropFilter: 'blur(20px)',
                 WebkitBackdropFilter: 'blur(20px)',
                 border: `1px solid ${isTopCard ? project.color : 'rgba(255, 255, 255, 0.08)'}`,
                 borderRadius: '16px',
-                padding: '30px',
                 boxShadow: isTopCard 
                   ? `0 20px 40px rgba(0, 0, 0, 0.75), 0 0 25px ${project.color}15, inset 0 1px 0 rgba(255, 255, 255, 0.05)` 
                   : '0 10px 25px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.02)',
